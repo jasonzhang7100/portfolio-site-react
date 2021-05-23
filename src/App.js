@@ -1,12 +1,13 @@
-import React from 'react';
-import { Route, Switch } from 'react-router-dom';
-import CssBaseline from '@material-ui/core/CssBaseline';
+import React from "react";
+import { Route, Switch } from "react-router-dom";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import "./App.css";
 
-import Navbar from './components/Navbar';
-import Home from './components/Home';
-import Resume from './components/Resume';
-import Projects from './components/Projects';
-import Contact from './components/Contact';
+import Navbar from "./components/Navbar";
+import Home from "./components/Home";
+import Resume from "./components/Resume";
+import Projects from "./components/Projects";
+import Contact from "./components/Contact";
 
 const App = () => {
   return (

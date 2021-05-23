@@ -24,7 +24,6 @@ const useStyles = makeStyles({
   },
   cover__subtitle: {
     color: "aquamarine",
-    textTransform: "uppercase",
   },
 });
 
@@ -33,11 +32,7 @@ const Cover = () => {
   return (
     <Box className={classes.cover__canvas}>
       <Grid container justify="center">
-        <Avatar
-          className={classes.cover__avatar}
-          src={avatar}
-          alt="Jason Zhang"
-        />
+        <Avatar className={classes.cover__avatar} src={avatar} alt="Jason Zhang" />
       </Grid>
       <Typography className={classes.cover__title} variant="h4">
         <Typed strings={["Jason Zhang"]} typeSpeed={80} />
@@ -45,11 +40,7 @@ const Cover = () => {
 
       <Typography className={classes.cover__subtitle} variant="h5">
         <Typed
-          strings={[
-            "Frontend Developer",
-            "Backend Developer",
-            "Fullstack Developer",
-          ]}
+          strings={["FRONTEND DEVELOPER", "BACKEND DEVELOPER", "FULLSTACK DEVELOPER"]}
           typeSpeed={50}
           backSpeed={50}
           loop

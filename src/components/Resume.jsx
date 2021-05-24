@@ -9,8 +9,6 @@ const useStyles = makeStyles(theme => ({
 
   resume__timeline: {
     position: "relative",
-    // padding: "1rem",
-    // margin: "o auto",
     "&::before": {
       content: "''",
       position: "absolute",
@@ -19,35 +17,22 @@ const useStyles = makeStyles(theme => ({
       border: "1px solid white",
       zIndex: -1,
     },
-    // "&::after": {
-    //   content: "''",
-    //   display: "table",
-    //   clear: "both",
-    // },
     [theme.breakpoints.up("md")]: {
-      // padding: "2rem",
       "&:before": {
-        left: "calc(50% - 1px)",
         right: "auto",
+        left: "calc(50% - 1px)",
       },
     },
   },
 
   resume__timeline__item: {
-    // padding: "1rem",
-    // borderBottom: "2px solid tan",
     position: "relative",
     margin: "2rem 4rem",
-    // clear: "both",
-    // "&:after": {
-    //   content: "''",
-    //   position: "absolute",
-    // },
     "&::before": {
       content: "''",
       position: "absolute",
       top: "calc(50% - .5rem)",
-      right: "-3.6rem",
+      right: "-1.6rem",
       borderStyle: "solid",
       borderColor: "tomato tomato transparent transparent",
       borderWidth: ".5rem",
@@ -57,46 +42,28 @@ const useStyles = makeStyles(theme => ({
       width: "43%",
       margin: "1rem",
       "&:nth-of-type(2n)": {
-        marginLeft: "39rem",
-        // float: "right",
-        // margin: "1rem",
-        // borderColor: "tan",
+        float: "right",
       },
-      "&:nth-of-type(2n):before": {
-        left: "-3.4rem",
+      "&:nth-of-type(2n)::before": {
         right: "auto",
+        left: "-1.4rem",
         borderColor: "transparent transparent tomato tomato",
       },
     },
   },
 
   resume__timeline__year: {
-    // maxWidth: "9.375rem",
     width: "9rem",
     padding: "0.4rem",
     borderRadius: ".5rem",
     margin: "1rem 3rem 1rem auto",
     background: "tomato",
-    // marginRight: "3rem",
-    // fontSize: "1.6rem",
     color: "white",
     textAlign: "center",
-
-    // lineHeight: 1,
-    // "&:before": {
-    //   display: "none",
-    // },
-
+    clear: "left",
     [theme.breakpoints.up("md")]: {
-      // textAlign: "center",
       margin: "1rem auto",
-      // "&:nth-of-type(2n)": {
-      //   float: "none",
-      //   margin: "0 auto",
-      // },
-      // "&:nth-of-type(2n):before": {
-      //   display: "none",
-      // },
+      clear: "both",
     },
   },
 
@@ -107,6 +74,7 @@ const useStyles = makeStyles(theme => ({
   resume__timeline__subtitle: {
     color: "tomato",
   },
+
   resume__timeline__content: {
     color: "aquamarine",
   },
@@ -144,11 +112,7 @@ const Resume = () => {
           </Typography>
         </Box>
 
-        <Typography
-          variant="h5"
-          // className={`${classes.resume__timeline__year} ${classes.resume__timeline__item}`}
-          className={classes.resume__timeline__year}
-        >
+        <Typography variant="h5" className={classes.resume__timeline__year}>
           03/2021
         </Typography>
 
@@ -166,11 +130,7 @@ const Resume = () => {
           </Typography>
         </Box>
 
-        <Typography
-          variant="h5"
-          // className={`${classes.resume__timeline__year} ${classes.resume__timeline__item}`}
-          className={classes.resume__timeline__year}
-        >
+        <Typography variant="h5" className={classes.resume__timeline__year}>
           07/2020
         </Typography>
 
@@ -187,11 +147,7 @@ const Resume = () => {
           </Typography>
         </Box>
 
-        <Typography
-          variant="h5"
-          // className={`${classes.resume__timeline__year} ${classes.resume__timeline__item}`}
-          className={classes.resume__timeline__year}
-        >
+        <Typography variant="h5" className={classes.resume__timeline__year}>
           09/2018
         </Typography>
 
@@ -208,11 +164,7 @@ const Resume = () => {
           </Typography>
         </Box>
 
-        <Typography
-          variant="h5"
-          // className={`${classes.resume__timeline__year} ${classes.resume__timeline__item}`}
-          className={classes.resume__timeline__year}
-        >
+        <Typography variant="h5" className={classes.resume__timeline__year}>
           09/2017
         </Typography>
       </Box>

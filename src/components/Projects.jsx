@@ -1,16 +1,21 @@
 import React from "react";
 import {
+  makeStyles,
   Box,
   Grid,
   Card,
-  CardActionArea,
-  CardActions,
-  CardContent,
+  CardHeader,
   CardMedia,
-  Button,
+  CardContent,
+  CardActions,
+  Collapse,
+  IconButton,
   Typography,
-  makeStyles,
 } from "@material-ui/core";
+import clsx from "clsx";
+import GitHubIcon from "@material-ui/icons/GitHub";
+import ComputerIcon from "@material-ui/icons/Computer";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
 import project1 from "../images/html-css-javascript-lg.jpg";
 import project2 from "../images/html-css-javascript.jpg";
@@ -19,91 +24,131 @@ import project4 from "../images/mern-stack.jpg";
 import project5 from "../images/react-redux.jpg";
 import project6 from "../images/react.png";
 
-const useStyles = makeStyles({
-  cardContainer: {
-    maxWidth: 345,
-    margin: "3rem auto",
-  },
-});
-
 const projects = [
   {
     name: "Project 1",
-    description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis
-    consequatur magni quod nesciunt necessitatibus molestiae non
-    eligendi, magnam est aliquam recusandae? Magnam soluta minus
-    iste alias sunt veritatis nisi dolores!`,
+    description: `It is a Pizza Order App 1 created by React. It is a Pizza Order App 1 created by React. It is a Pizza Order App 1 created by React.`,
+    introduction: `1 Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet over medium-high heat. Add
+    chicken, shrimp and chorizo, and cook, stirring occasionally until lightly browned, 6 to 8
+    minutes.`,
     image: project1,
   },
   {
     name: "Project 2",
-    description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis\
-    consequatur magni quod nesciunt necessitatibus molestiae non\
-    eligendi, magnam est aliquam recusandae? Magnam soluta minus\
-    iste alias sunt veritatis nisi dolores!`,
+    description: `It is a Pizza Order App 2 created by React.`,
+    introduction: `2 Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet over medium-high heat. Add
+    chicken, shrimp and chorizo, and cook, stirring occasionally until lightly browned, 6 to 8
+    minutes.`,
     image: project2,
   },
   {
     name: "Project 3",
-    description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis\
-    consequatur magni quod nesciunt necessitatibus molestiae non\
-    eligendi, magnam est aliquam recusandae? Magnam soluta minus\
-    iste alias sunt veritatis nisi dolores!`,
+    description: `It is a Pizza Order App 3 created by React.`,
+    introduction: `3 Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet over medium-high heat. Add
+    chicken, shrimp and chorizo, and cook, stirring occasionally until lightly browned, 6 to 8
+    minutes.`,
     image: project3,
   },
   {
     name: "Project 4",
-    description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis\
-    consequatur magni quod nesciunt necessitatibus molestiae non\
-    eligendi, magnam est aliquam recusandae? Magnam soluta minus\
-    iste alias sunt veritatis nisi dolores!`,
+    description: `It is a Pizza Order App 4 created by React.`,
+    introduction: `4 Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet over medium-high heat. Add
+    chicken, shrimp and chorizo, and cook, stirring occasionally until lightly browned, 6 to 8
+    minutes.`,
     image: project4,
   },
   {
     name: "Project 5",
-    description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis\
-    consequatur magni quod nesciunt necessitatibus molestiae non\
-    eligendi, magnam est aliquam recusandae? Magnam soluta minus\
-    iste alias sunt veritatis nisi dolores!`,
+    description: `It is a Pizza Order App 5 created by React.`,
+    introduction: `5 Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet over medium-high heat. Add
+    chicken, shrimp and chorizo, and cook, stirring occasionally until lightly browned, 6 to 8
+    minutes.`,
     image: project5,
   },
   {
     name: "Project 6",
-    description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis\
-    consequatur magni quod nesciunt necessitatibus molestiae non\
-    eligendi, magnam est aliquam recusandae? Magnam soluta minus\
-    iste alias sunt veritatis nisi dolores!`,
+    description: `It is a Pizza Order App 6 created by React.`,
+    introduction: `6 Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet over medium-high heat. Add
+    chicken, shrimp and chorizo, and cook, stirring occasionally until lightly browned, 6 to 8
+    minutes.`,
     image: project6,
   },
 ];
 
+const useStyles = makeStyles(theme => ({
+  projects__container: {
+    margin: theme.spacing(2),
+    maxWidth: 350,
+  },
+  projects__img: {
+    height: 0,
+    paddingTop: "70%",
+  },
+  projects__expansion: {
+    transform: "rotate(0deg)",
+    marginLeft: "auto",
+    transition: theme.transitions.create("transform", {
+      duration: theme.transitions.duration.shortest,
+    }),
+  },
+  projects__expansion__open: {
+    transform: "rotate(180deg)",
+  },
+  projects__collapse: {
+    position: "absolute",
+    maxWidth: 350,
+    padding: "1rem",
+    borderRadius: "4px",
+    marginTop: ".5rem",
+    background: "white",
+  },
+}));
+
 const Projects = () => {
   const classes = useStyles();
+  const [expandedId, setExpandedId] = React.useState(-1);
+
+  const handleExpandClick = i => {
+    setExpandedId(expandedId === i ? -1 : i);
+  };
+
   return (
     <Box component="div">
       <Grid container justify="center">
-        {projects.map((project, index) => (
-          <Grid item xs={12} sm={6} lg={4} key={index}>
-            <Card className={classes.cardContainer}>
-              <CardActionArea>
-                <CardMedia component="img" alt="Project 1" height="140" image={project.image} />
-                <CardContent>
-                  <Typography variant="h5" gutterBottom>
-                    {project.name}
-                  </Typography>
-                  <Typography variant="body2" color="textSecondary">
-                    {project.description}
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-              <CardActions>
-                <Button size="small" color="primary">
-                  Share
-                </Button>
-                <Button size="small" color="primary">
-                  Live Demo
-                </Button>
+        {projects.map((project, i) => (
+          <Grid item xs={12} sm={6} lg={4} key={i} className={classes.projects__container}>
+            <Card>
+              <CardHeader title={project.name} />
+              <CardMedia className={classes.projects__img} image={project.image} title="Project Img" />
+              <CardContent>
+                <Typography variant="body2" color="textSecondary" component="p">
+                  {project.description}
+                </Typography>
+              </CardContent>
+              <CardActions disableSpacing>
+                <IconButton aria-label="check sourcecode">
+                  <GitHubIcon />
+                </IconButton>
+                <IconButton aria-label="check demo">
+                  <ComputerIcon />
+                </IconButton>
+                <IconButton
+                  className={clsx(classes.projects__expansion, {
+                    [classes.projects__expansion__open]: expandedId === i,
+                  })}
+                  onClick={() => handleExpandClick(i)}
+                  aria-expanded={expandedId === i}
+                  aria-label="show more"
+                >
+                  <ExpandMoreIcon />
+                </IconButton>
               </CardActions>
+              <Collapse in={expandedId === i} timeout="auto" unmountOnExit>
+                <Box className={classes.projects__collapse}>
+                  <Typography paragraph>Stack:</Typography>
+                  <Typography paragraph>{project.introduction}</Typography>
+                </Box>
+              </Collapse>
             </Card>
           </Grid>
         ))}

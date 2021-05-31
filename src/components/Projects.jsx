@@ -27,7 +27,7 @@ import project6 from "../images/react.png";
 const projects = [
   {
     name: "Project 1",
-    description: `It is a Pizza Order App 1 created by React. It is a Pizza Order App 1 created by React. It is a Pizza Order App 1 created by React.`,
+    description: `It is a Pizza Order App 1 created by React. `,
     introduction: `1 Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet over medium-high heat. Add
     chicken, shrimp and chorizo, and cook, stirring occasionally until lightly browned, 6 to 8
     minutes.`,
@@ -77,7 +77,7 @@ const projects = [
 
 const useStyles = makeStyles(theme => ({
   projects__container: {
-    margin: theme.spacing(2),
+    margin: theme.spacing(3),
     maxWidth: 350,
   },
   projects__img: {

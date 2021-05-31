@@ -2,7 +2,7 @@ import React from "react";
 import Typed from "react-typed";
 import { Box, Grid, Avatar, Typography, makeStyles } from "@material-ui/core";
 
-import avatar from "../images/avatar.png";
+import avatar from "../../images/avatar.png";
 
 const useStyles = makeStyles({
   cover__canvas: {
@@ -17,7 +17,7 @@ const useStyles = makeStyles({
   cover__avatar: {
     width: 160,
     height: 160,
-    marginBottom: 16,
+    marginBottom: "2rem",
   },
   cover__title: {
     color: "tomato",

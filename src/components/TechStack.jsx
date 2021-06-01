@@ -12,8 +12,8 @@ const useStyles = makeStyles({
     textAlign: "center",
   },
   techstack__container: {
-    margin: "0 4rem",
-    borderRadius: "1rem",
+    margin: "0 8rem",
+    borderRadius: "2rem",
   },
 });
 
@@ -35,32 +35,61 @@ const components = {
 };
 
 const markdown = `~~~js
-export const TechStack = () => {
+export const MyTechStack = () => {
   const techList = [
     {
       field: "frontend",
       skills: [
-        "HTML5",
-        "CSS3",
-        "SCSS/LESS",
-        "JS(ES6+)",
-        "TS(3.x)",
-        "React",
-        "Bootstrap(3/4)",
-        "MaterialUI",
-        "AntD",
-        "Webpack",
+        "HTML5", "CSS3", "Styled-Components", "SCSS/SASS", "LESS"
+        "JavaScript(ES6+)", "TypeScript(3.x)",
+        "React(Redux, Hooks)", "React Native", "Next.js", 
+        "Bootstrap(3/4)", "Material UI", "Antd",
+        "Ajax(axios/fetch)"
+        "Webpack", "Gulp",
       ],
     },
-    { field: "frontendTesting", skills: ["Jest", "Mocha", "Enzyme"] },
-    { field: "backend", skills: ["Node.js", "Java"] },
-    { field: "cloudServices", skills: ["AWS S3", "AWS EC2", "AWS CloudFront", "AWS Lambda"] },
+    { 
+      field: "frontendTesting", 
+      skills: ["Jest", "Enzyme"]
+    },
+    { 
+      field: "backend", 
+      skills: [
+        "Node.js", "Express", "Koa2",
+        "Java(JavaEE/JavaSE)", "Spring Boot",
+        "JWT Token",
+      ] 
+    },
+    { 
+      field: "cloudService", 
+      skills: ["AWS S3", "AWS EC2", "AWS CloudFront", "AWS Lambda"] 
+    },
+    { 
+      field: "datebase", 
+      skills: ["MySQL", "DynamoDB", "MongoDB"] 
+    },
+    { 
+      field: "architecture", 
+      skills: ["RESTful APIs"] 
+    },
+    { 
+      field: "devToolsAndVersionControl", 
+      skills: ["GitHub", "GitLab", "BitBucket", "Postman", "Jira"] 
+    },
+    { 
+      field: "devOps", 
+      skills: ["Docker", "Jenkins"] 
+    },
+    { 
+      field: "methodology", 
+      skills: ["Agile", "Scrum", "Test Driven Development"] 
+    },
   ];
-  return techList.map(techItem => (
-    <dl>
+  return techList.map((techItem, i) => (
+    <dl key={i}>
       <dt>{techItem.field}</dt>
-      {techItem.skills.map(skill => (
-        <dd>{skill}</dd>
+      {techItem.skills.map((skill, i) => (
+        <dd key={i}>{skill}</dd>
       ))}
     </dl>
   ));

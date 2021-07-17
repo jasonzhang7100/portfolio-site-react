@@ -1,10 +1,9 @@
-import React from "react";
-import Particles from "react-particles-js";
-import { makeStyles } from "@material-ui/core/styles";
+import Particles from 'react-particles-js';
+import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
   particle__canvas: {
-    position: "fixed",
+    position: 'fixed',
   },
 });
 

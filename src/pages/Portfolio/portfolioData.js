@@ -54,6 +54,5 @@ export const portfolioData = [
     image:
       'https://raw.githubusercontent.com/jasonzhang7100/screenshots/master/portfolio-site-screenshot.png',
     gitUrl: 'https://github.com/jasonzhang7100/portfolio-site-react',
-    appUrl: 'https://github.com/jasonzhang7100/portfolio-site-react',
   },
 ];

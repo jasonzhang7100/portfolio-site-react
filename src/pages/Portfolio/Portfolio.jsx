@@ -52,9 +52,9 @@ const useStyles = makeStyles((theme) => ({
     position: 'absolute',
     maxWidth: 350,
     padding: '1rem',
-    border: '1px solid aquamarine',
     borderRadius: '1rem',
     marginTop: '-1rem',
+    marginLeft: '.6rem',
     background: 'lightgrey',
   },
 }));

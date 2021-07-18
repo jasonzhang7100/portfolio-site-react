@@ -1,5 +1,10 @@
 import Typed from 'react-typed';
-import { Box, Grid, Avatar, Typography, makeStyles } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+
+import Box from '@material-ui/core/Box';
+import Grid from '@material-ui/core/Grid';
+import Avatar from '@material-ui/core/Avatar';
+import Typography from '@material-ui/core/Typography';
 
 import avatar from '../../assets/images/avatar.png';
 
@@ -13,15 +18,18 @@ const useStyles = makeStyles({
     width: '100%',
     textAlign: 'center',
   },
+
   cover__avatar: {
     width: 160,
     height: 160,
     marginBottom: '2rem',
   },
+
   cover__title: {
     color: 'tomato',
     fontSize: '2rem',
   },
+
   cover__subtitle: {
     color: 'aquamarine',
     fontSize: '1.2rem',
@@ -30,6 +38,7 @@ const useStyles = makeStyles({
 
 const Cover = () => {
   const classes = useStyles();
+
   return (
     <Box className={classes.cover__canvas}>
       <Grid container justify="center">

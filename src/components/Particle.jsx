@@ -9,6 +9,7 @@ const useStyles = makeStyles({
 
 const Particle = () => {
   const classes = useStyles();
+
   return (
     <Particles
       canvasClassName={classes.particle__canvas}

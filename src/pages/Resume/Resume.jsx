@@ -1,4 +1,10 @@
-import { Box, Typography, makeStyles } from '@material-ui/core';
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+
+import Box from '@material-ui/core/Box';
+import Typography from '@material-ui/core/Typography';
+
+import { resumeData } from './resumeData';
 
 const useStyles = makeStyles((theme) => ({
   resume__header: {
@@ -85,75 +91,39 @@ const useStyles = makeStyles((theme) => ({
   resume__timeline__content: {
     padding: '.5rem',
     color: 'aquamarine',
-    lineHeight: '1.9rem',
+    lineHeight: '1.8rem',
   },
 }));
 
 const Resume = () => {
   const classes = useStyles();
+
   return (
     <Box component="header">
       <Typography className={classes.resume__header}>
         WORKING EXPERIENCE
       </Typography>
       <Box component="div" className={classes.resume__timeline}>
-        <Box component="div" className={classes.resume__timeline__item}>
-          <Typography className={classes.resume__timeline__title}>
-            FULLSTACK DEVELOPER
-          </Typography>
-          <Typography className={classes.resume__timeline__subtitle}>
-            JR Academy
-          </Typography>
-          <Typography className={classes.resume__timeline__content}>
-            • Worked in an agile team using Jira and Bitbucket
-            <br />
-            • Used Express.js to develop the backend RESTful APIs
-            <br />
-            • Followed TDD and used Jest and Supertest to write backend test
-            assertions
-            <br />
-            • Set MongoDB, by which wrote Schemas and Models, and developed CRUD
-            controllers following the MVC architecture
-            <br />
-            • Wrote validator middleware with Joi
-            <br />
-            • Wrote API documents in YAML with Swagger, and tested them with
-            Postman
-            <br />
-            • Manually set Webpack configuration for React frontend structure
-            <br />
-            • Wrote frontend test assertions with Enzyme following TDD
-            <br />
-            • Planned page routes, and developed main components with React
-            Hooks and Styled-Components
-            <br />
-            • Set the component style with Flexbox and Position syntax, and
-            realized responsive layout with Media Query
-            <br />• Set Eslint and Husky for code checking and inter-group
-            consistency
-          </Typography>
-        </Box>
-
-        <Typography className={classes.resume__timeline__year}>
-          03/2021
-        </Typography>
-
-        <Box component="div" className={classes.resume__timeline__item}>
-          <Typography className={classes.resume__timeline__title}>
-            WEB DEVELOPER
-          </Typography>
-          <Typography className={classes.resume__timeline__subtitle}>
-            Credit Asset Management Ltd
-          </Typography>
-          <Typography className={classes.resume__timeline__content}>
-            • Developed and maintained the company's portal website for business
-            showcasing
-            <br />• Built the company's blog system using Next.js
-          </Typography>
-        </Box>
-        <Typography className={classes.resume__timeline__year}>
-          07/2020
-        </Typography>
+        {resumeData.map((item) => (
+          <React.Fragment key={item.position}>
+            <Box component="div" className={classes.resume__timeline__item}>
+              <Typography className={classes.resume__timeline__title}>
+                {item.position}
+              </Typography>
+              <Typography className={classes.resume__timeline__subtitle}>
+                {item.company}
+              </Typography>
+              <Typography className={classes.resume__timeline__content}>
+                {item.responsibilities.map((responsibility) => (
+                  <li key={responsibility}>{responsibility}</li>
+                ))}
+              </Typography>
+            </Box>
+            <Typography className={classes.resume__timeline__year}>
+              {item.beginningDate}
+            </Typography>
+          </React.Fragment>
+        ))}
       </Box>
     </Box>
   );

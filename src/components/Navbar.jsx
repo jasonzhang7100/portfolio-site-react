@@ -1,19 +1,18 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link as ReactLink } from 'react-router-dom';
+import { makeStyles } from '@material-ui/core/styles';
+
 import Link from '@material-ui/core/Link';
-import {
-  makeStyles,
-  Drawer,
-  Box,
-  AppBar,
-  Toolbar,
-  IconButton,
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
-  Avatar,
-} from '@material-ui/core';
+import Drawer from '@material-ui/core/Drawer';
+import Box from '@material-ui/core/Box';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import IconButton from '@material-ui/core/IconButton';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import Avatar from '@material-ui/core/Avatar';
 import MenuIcon from '@material-ui/icons/Menu';
 import Home from '@material-ui/icons/Home';
 import AssignmentInd from '@material-ui/icons/AssignmentInd';
@@ -35,15 +34,18 @@ const useStyles = makeStyles((theme) => ({
     background: '#202020',
     height: '100%',
   },
+
   navbar__avatar: {
     margin: '2rem auto',
     width: theme.spacing(12),
     height: theme.spacing(12),
   },
+
   navbar__slider__item: {
     color: 'aquamarine',
     padding: '.4rem 0',
   },
+
   navbar__bar: {
     display: 'flex',
     justifyContent: 'space-between',
@@ -51,6 +53,7 @@ const useStyles = makeStyles((theme) => ({
     minHeight: '2rem',
     minWidth: '375px',
   },
+
   navbar__menu__icon: {
     margin: '0 .6rem',
     color: 'aquamarine',
@@ -65,7 +68,7 @@ const menuItems = [
     listPath: '/techstack',
   },
   { listIcon: <AssignmentInd />, listText: 'RESUME', listPath: '/resume' },
-  { listIcon: <Apps />, listText: 'PROJECTS', listPath: '/projects' },
+  { listIcon: <Apps />, listText: 'PORTFOLIO', listPath: '/portfolio' },
   { listIcon: <ContactMail />, listText: 'CONTACT', listPath: '/contact' },
 ];
 
@@ -81,10 +84,10 @@ const Navbar = () => {
         alt="Jason Zhang"
       />
       <List>
-        {menuItems.map((item, i) => (
+        {menuItems.map((item) => (
           <ListItem
             button
-            key={i}
+            key={item.listText}
             className={classes.navbar__slider__item}
             onClick={() => setOpen(false)}
             component={ReactLink}

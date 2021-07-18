@@ -1,8 +1,11 @@
 import Typed from 'react-typed';
 import ReactMarkdown from 'react-markdown';
-import { Box, Typography, makeStyles } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { a11yDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
+
+import Box from '@material-ui/core/Box';
+import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles((theme) => ({
   techstack__title: {
@@ -11,12 +14,14 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '1.2rem',
     textAlign: 'center',
   },
+
   techstack__container: {
     margin: '0 auto',
     padding: '0 1rem',
     maxWidth: '50rem',
     minWidth: '375px',
   },
+
   techstack__content: {
     [theme.breakpoints.down('sm')]: {
       fontSize: '.1rem',
@@ -110,6 +115,7 @@ export const MyTechStack = () => {
 
 const TechStack = () => {
   const classes = useStyles();
+
   return (
     <Box className={classes.techstack__container}>
       <Typography className={classes.techstack__title}>
